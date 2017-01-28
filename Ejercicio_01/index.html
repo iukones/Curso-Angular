@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en-US" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/lib/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <h1>{{ "Hola Mundo! desde AngularJS" }}</h1>
+
+        <h2>Filtros :: Filters</h2>
+        <h3>en AngularJS</h3>
+        <hr>
+        <p>
+            Filtro de texto: {{ "FerNandO" }}
+            <br>
+            Filtro de texto: {{ "FerNandO" | uppercase }}
+            <br>
+            Filtro de texto: {{ "FerNandO" | lowercase }}
+            <br>
+        </p>
+        <p>
+            Filtro Moneda:  {{ 1350 }}
+            <br>
+            Filtro Moneda:  {{ 1350 | currency }}
+            <br>
+            Filtro Moneda:  {{ 1350 | currency: 'Mex ' }}
+        </p>
+        <p>
+            Filtro Numero:  {{ 1350000 }}
+            <br>
+            Filtro Numero:  {{ 1350000 | number }}
+        </p>
+        </section>
+
+        <section>
+            <h1>Directiva: ng-model</h1>
+
+            <p>Su nombre: {{ nombre }}
+                <br>
+                <input type="text" ng-model="nombre" class="form-control" placeholder="Ingrese su nombre">
+            </p>
+
+            <p>
+                seleccione el pais: {{ pais }}
+                <select class="form-control" ng-model="pais">
+                    <option value="1">Mexico</option>
+                    <option value="2">Costa</option>
+                    <option value="3">Cancun</option>
+
+                </select>
+
+            </p>
+
+
+
+
+        </section>
+
+
+    </div>
+
+</body>
+</html>

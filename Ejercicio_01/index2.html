@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+<head>
+    <meta charset="UTF-8">
+    <title>Importar Datos JSON</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+</head>
+<body ng-app="datosApp">
+    <div ng-controller="controladorDatos">
+        <h1>Prueba traer datos con JSON</h1>
+        <p>{{equipo.bienvenida}}</p>
+
+        <ul ng-repeat="integrantes in equipo.integrante">
+            <li >{{integrantes.nombre}}</li>
+            <li>{{integrantes.departamento}}</li>
+            <li>{{integrantes.correo}}</li>
+            <li>{{integrantes.clave}}</li>
+        </ul>
+
+    </div>
+
+ <script src="js/lib/angular1-5.min.js"></script>
+ <script src="js/app.js"></script>
+
+
+</body>
+</html>

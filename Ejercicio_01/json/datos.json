@@ -1,0 +1,36 @@
+{
+    "integrante": [
+    {
+        "nombre": "Nombre: Haydee Mayo",
+        "departamento": "Departamento: Control",
+        "correo": "Correo: hmayo@tinsamexico.mx",
+        "clave": "Contraseña: T1ns432"
+    },
+    {
+        "nombre": "Nombre: Diana Monroy",
+        "departamento": "Departamento: Control",
+        "correo": "Correo: dmonroy@tinsamexico.mx",
+        "clave": "Contraseña: T1ns4320"
+    },
+    {
+        "nombre": "Nombre: Israel Martinez",
+        "departamento": "Departamento: Sistemas",
+        "correo": "Correo: imartinez@tinsamexico.mx",
+        "clave": "Contraseña: T1ns4320"
+    },
+    {
+        "nombre": "Nombre: Juanito Galaxia",
+        "departamento": "Departamento: Sistemas",
+        "correo": "Correo: jarana@tinsamexico.mx",
+        "clave": "Contraseña: T1ns4320"
+    },
+    {
+        "nombre": "Nombre: Victor Arroyo",
+        "departamento": "Departamento: Control",
+        "correo": "Correo: varroyo@tinsamexico.mx",
+        "clave": "Contraseña: T1ns4320"
+    }
+    ],
+
+    "bienvenida": "Bienvenidos al sistema de password correos..."
+}

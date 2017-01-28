@@ -1,0 +1,47 @@
+¡Increíble! Ha creado una aplicación AngularJS. ¿Como funciona?
+
+En app.js, creamos un nuevo módulo llamado myApp. Un módulo contiene los diferentes componentes de una aplicación AngularJS.
+Luego, en index.html agregamos <body ng-app = "myApp">. El ng-app se llama una directiva. Le dice a AngularJS que el módulo myApp vivirá dentro del elemento <body>, denominado alcance de la aplicación. En otras palabras, utilizamos la directiva ng-app para definir el ámbito de la aplicación.
+En MainController.js creamos un nuevo controlador denominado MainController. Un controlador gestiona los datos de la aplicación. Aquí usamos el título de propiedad para almacenar una cadena, y adjuntarla a $ scope.
+Luego, en index.html, agregamos <div class = "main" ng-controller = "MainController">. Al igual que ng-app, ng-controller es una directiva que define el ámbito del controlador. Esto significa que las propiedades asociadas a $ scope en MainController están disponibles para su uso en <div class = "main">.
+Dentro de <div class = "main"> accedimos a $ scope.title usando {{title}}. Esto se llama una expresión. Las expresiones se utilizan para mostrar valores en la página.
+El valor del título apareció cuando vimos la aplicación en el navegador.
+
+3.Workflow
+Hasta ahora, este es nuestro flujo de trabajo típico al realizar una aplicación de AngularJS:
+Cree un módulo y use ng-app en la vista para definir el ámbito de la aplicación.
+Cree un controlador y utilice ng-controller en la vista para definir el ámbito del controlador.
+Agregue datos al ámbito $ en el controlador para que puedan mostrarse con expresiones en la vista.
+
+4.FiltersI
+¡Bien hecho! En el controlador, utilizó un objeto para agrupar datos relacionados con un producto. A continuación, en la vista, utilizó la notación de puntos para mostrar los valores.
+
+5.FiltersII
+
+¡Estupendo! El precio del producto cambió de un número a una moneda con formato. ¿Como funciona?
+
+AngularJS obtiene el valor de product.price.
+Envía este número al filtro de moneda. El símbolo de tubo (|) toma la salida a la izquierda y la "canaliza" a la derecha.
+El filtro emite una moneda formateada con el signo de dólar y los decimales correctos.
+De esta manera, los filtros ayudan a separar el contenido del controlador de su presentación en la vista.
+
+6.ng-repeat I
+Hagamos una revisión rápida:
+Un módulo contiene los diferentes componentes de una aplicación AngularJS
+Un controlador gestiona los datos de la aplicación
+Una expresión muestra valores en la página
+Un filtro formatea el valor de una expresión
+
+7.ng-repeat II
+¡Bien hecho! Tienes dos libros en $ scope.products para aparecer en la vista. ¿Como funciona?
+En el controlador, utilizamos productos para almacenar una matriz que contenía dos objetos.
+Luego en la vista, agregamos <div ng-repeat = "producto en productos">. Como ng-app y ng-controller, la ng-repeat es una directiva. Loops a través de una matriz y muestra cada elemento. Aquí, ng-repeat repite todo el HTML dentro de <div class = "col-md-6"> para cada elemento de la matriz de productos.
+De esta manera, ng-repeat muestra ambos productos en la matriz $ scope.products. En lugar de escribir el mismo código HTML dos veces antes, sólo usamos ng-repeat para generar el HTML dos veces.
+
+8.Directives
+Hemos utilizado algunas directivas hasta ahora: ng-app, ng-controller, ng-repeat y ng-src. ¿Qué podemos generalizar sobre las directivas?
+Las directivas enlazan comportamiento a elementos HTML. Cuando se ejecuta la aplicación, AngularJS recorre cada elemento HTML buscando directivas. Cuando encuentra uno, AngularJS activa ese comportamiento (como adjuntar un ámbito o realizar un bucle a través de una matriz).
+
+
+
+
