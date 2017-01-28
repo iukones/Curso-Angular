@@ -42,6 +42,15 @@ De esta manera, ng-repeat muestra ambos productos en la matriz $ scope.products.
 Hemos utilizado algunas directivas hasta ahora: ng-app, ng-controller, ng-repeat y ng-src. ¿Qué podemos generalizar sobre las directivas?
 Las directivas enlazan comportamiento a elementos HTML. Cuando se ejecuta la aplicación, AngularJS recorre cada elemento HTML buscando directivas. Cuando encuentra uno, AngularJS activa ese comportamiento (como adjuntar un ámbito o realizar un bucle a través de una matriz).
 
+9.ng-click I
+Hasta ahora hemos creado una aplicación AngularJS estática añadiendo propiedades en el controlador y mostrándolas en la vista. AngularJS es un marco para crear aplicaciones web dinámicas, así que comencemos a hacer que esta aplicación sea interactiva.
+
+10.ng-click II
+¡Estupendo! Cada vez que haga clic en el número de gustos, el número sube. ¿Como funciona?
+El ng-click es una directiva. Cuando se hace clic en <p class = "likes">, ng-click le dice a AngularJS que ejecute la función plusOne () en el controlador.
+La función plusOne () obtiene el índice del producto al que se hizo clic y, a continuación, agrega uno a la propiedad likes de ese producto.
+Observe que el plusOne () no interactúa con la vista en absoluto; Sólo actualiza el controlador. Cualquier cambio realizado en el controlador aparece en la vista.
+
 
 
 
