@@ -58,25 +58,4 @@ En el controlador MainController.js, hay tres objetos $ scope.move, $ scope.shut
 En la vista index.html en la sección .main, cada aplicación se muestra dentro de una div. Card.
 Pero mirando la vista, el mismo código se escribe una y otra vez para mostrar cada aplicación. Esto es repetitivo y propenso a errores. Vamos a arreglar esto.
 
-2.Directives II
-¿Qué acabamos de hacer? Escribimos código para enseñar al navegador un nuevo elemento HTML <app-info>, y lo utilizamos en la vista para mostrar los detalles de cada aplicación.
-
-Primero en js / directives / appInfo.js, hicimos una nueva directiva. Utilizamos app.directive para crear una nueva directiva denominada 'appInfo'. Devuelve un objeto con tres opciones:
-
-Restrict especifica cómo se utilizará la directiva en la vista. El 'E' significa que se utilizará como un nuevo elemento HTML.
-Scope especifica que pasaremos información a esta directiva a través de un atributo llamado info. The = le dice a la directiva que busque un atributo llamado info en el elemento <app-info>, como esto:
- <App-info info = "shutterbugg"> </ app-info>
-Los datos de info se vuelven disponibles para su uso en la plantilla dada por templateURL.
-TemplateUrl especifica el HTML a utilizar para mostrar los datos en scope.info. Aquí utilizamos el HTML en js / directives / appInfo.html.
-En cuanto a js / directives / appInfo.html, definimos el HTML para mostrar detalles sobre una aplicación, como su título y precio. Utilizamos expresiones y filtros para mostrar los datos.
-
-Luego en index.html usamos la nueva directiva como el elemento HTML <app-info>. Pasamos objetos desde el ámbito del controlador ($ scope.shutterbugg) al atributo de información del elemento <app-info> para que se muestre.
-
-3.Directives III
-¿Por qué es útil crear sus propias directivas?
-
-Legibilidad. Las directivas le permiten escribir HTML expresivo. Buscando en index.html puede entender el comportamiento de la aplicación simplemente leyendo el HTML.
-Reutilización. Las directivas le permiten crear unidades autónomas de funcionalidad. Podríamos conectar fácilmente esta directiva a otra aplicación AngularJS y evitar escribir mucho HTML repetitivo.
-
-
 
