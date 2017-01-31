@@ -81,14 +81,74 @@ Reutilización. Directivas permiten crear unidades autónomas de funcionalidad. Fá
 
 4.Build-in and custom directives
 Sabemos que AngularJS viene con algunas directivas integradas como ng-repeat y ng-click.
-
 Hemos visto que AngularJS hace posible crear sus propias directivas personalizadas, como <app-info>.
-
 Podemos utilizar las directivas integradas de Angular junto con directivas personalizadas para crear aplicaciones más legibles.
 
 Para referencia, he aquí cómo usar ng-repeat:
-
-<Div ng-repeat = "producto en productos">
+<Div ng-repeat = "product in products">
   <Img ng-src = "{{product.cover}}">
   <P class = "title"> {{product.name}} </ p>
 </ Div>
+
+5.installApp I
+Las directivas son una característica esencial de AngularJS. Hasta ahora hemos utilizado directivas personalizadas para simplemente mostrar contenido estático, pero pueden hacer más que esto. Es posible transformar la interactividad en directivas.
+Comencemos a crear otra directiva que reaccione al clic de un usuario.
+
+6.installApp II
+Utilizamos app.directive para crear una nueva directiva denominada 'installApp'.
+
+La directiva contiene las tres opciones restrict, scope y templateUrl que vimos antes en la directiva 'appInfo'.
+También contiene un enlace de la cuarta opción. El enlace se utiliza para crear directivas interactivas que responden a las acciones del usuario.
+
+La función de enlace toma tres entradas:
+
+-scope se refiere al ámbito de aplicación de la Directiva. Cualquier nueva propiedad asociada a $scope estará disponible para su uso en la plantilla de la directiva.
+
+-element se refiere al elemento HTML de la directiva.
+
+-attrs contiene los atributos del elemento.
+
+Dentro de la función link, hay dos propiedades buttonText e installed, y la función download(). Los utilizaremos en la siguiente plantilla de la directiva.
+
+7.installApp III
+La plantilla utiliza la directiva ng-click incorporada de Angular. Cuando se hace clic en el botón, ng-click le indicará a AngularJS que ejecute la función download () en la directiva.
+
+La función download () utiliza la propiedad scope.installed para verificar si una aplicación está instalada. Cuando se instala una aplicación, download () hace tres cosas:
+
+Cambia la clase .btn-active
+Cambia el texto del botón a "Desinstalar"
+Cambia el scope.installed a true
+
+8.Generalizations
+¡Bien hecho! Ahora aparece un botón "Instalar" debajo de cada aplicación. Al hacer clic en el botón, cambia a un botón "Desinstalar". Cuando vuelves a hacer clic en él, cambia de nuevo a un botón "Instalar".
+¿Qué podemos generalizar hasta ahora?
+Las directivas son una forma poderosa de crear componentes independientes e interactivos. A diferencia de jQuery que añade interactividad como una capa encima de HTML, AngularJS trata la interactividad como un componente nativo de HTML.
+
+1.Services I
+Hasta ahora hemos hecho aplicaciones de AngularJS agregando datos a un controlador y luego mostrándolo en una vista.
+Pero, ¿qué ocurre cuando los datos contienen cientos de artículos o si cambian constantemente como el clima o los datos financieros? Hardcoding datos en un controlador no funcionará más.
+Una solución mejor es leer los datos vivos de un servidor. Podemos hacer esto creando un servicio.
+
+2.Services II
+¡Bien hecho! La city_name muestra ahora en la vista. ¿Como funciona?
+
+Por primera vez en js/servicios/forecast.js, hicimos un nuevo servicio . Se utilizó app.factory para crear un nuevo servicio llamado forecast
+El forecast servicio necesita utilizar AngularJS incorporado en $http a buscar JSON desde el servidor. Por lo tanto, añadimos $http al forecast servicio como una dependencia, como esto:
+ ['$http', function($http) {
+   // ...
+ }]
+Ahora $http está disponible para su uso en el interior forecast.
+Luego, en el interior forecast, que utilizamos $http para construir un HTTP GET solicitud de los datos del tiempo. Si la solicitud se realiza correctamente, se devuelven los datos del tiempo; de lo contrario la información de error se devuelve.
+A continuación en el controlador, hemos utilizado el forecastservicio para obtener los datos desde el servidor. En primer lugar hemos añadido forecasten MainControllercomo una dependencia de modo que esté disponible para su uso. A continuación, dentro del controlador se utilizó forecastpara traer los datos de forma asíncrona de tiempo en el servidor y almacenarlo en$scope.fiveDay
+Como antes, las propiedades asociadas a $scopeconvertirse en disponibles para su uso en la vista. Esto significa, en index.html , podemos mostrar el city_nameuso de una expresión como se ha hecho antes.
+
+3.Generalizations
+¿Por qué son útiles los servicios? En lugar de llenar el controlador con código para obtener los datos de tiempo en un servidor, es mejor mover esta lógica independiente en un servicio para que pueda ser reutilizado por otras partes de la aplicación.
+¿Qué podemos generalizar hasta ahora?
+Las directivas son una manera de hacer componentes de interfaz independientes, como <app-info>
+Los servicios son una manera de hacer lógica de comunicación independiente, al igual que forecastla que obtiene datos de tiempo de un servidor.
+
+1.Routing I
+Hasta ahora hemos creado aplicaciones de AngularJS que muestran datos en una única vista index.html.
+Pero, ¿qué sucede cuando la aplicación crece y necesita mostrar más información? Rellenar más código en una sola vista rápidamente hará que las cosas sean desordenadas.
+Una solución mejor es utilizar varias plantillas que muestran diferentes partes de datos basadas en la URL que el usuario está visitando. Podemos hacerlo con las rutas de aplicación de Angular.
