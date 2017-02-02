@@ -140,7 +140,7 @@ El forecast servicio necesita utilizar AngularJS incorporado en $http a buscar J
 Ahora $http está disponible para su uso en el interior forecast.
 Luego, en el interior forecast, que utilizamos $http para construir un HTTP GET solicitud de los datos del tiempo. Si la solicitud se realiza correctamente, se devuelven los datos del tiempo; de lo contrario la información de error se devuelve.
 A continuación en el controlador, hemos utilizado el forecastservicio para obtener los datos desde el servidor. En primer lugar hemos añadido forecasten MainControllercomo una dependencia de modo que esté disponible para su uso. A continuación, dentro del controlador se utilizó forecastpara traer los datos de forma asíncrona de tiempo en el servidor y almacenarlo en$scope.fiveDay
-Como antes, las propiedades asociadas a $scopeconvertirse en disponibles para su uso en la vista. Esto significa, en index.html , podemos mostrar el city_nameuso de una expresión como se ha hecho antes.
+Como antes, las propiedades asociadas a $scopeconvertirse en disponibles para su uso en la vista. Esto significa, en index.html , podemos mostrar el city_name uso de una expresión como se ha hecho antes.
 
 3.Generalizations
 ¿Por qué son útiles los servicios? En lugar de llenar el controlador con código para obtener los datos de tiempo en un servidor, es mejor mover esta lógica independiente en un servicio para que pueda ser reutilizado por otras partes de la aplicación.
