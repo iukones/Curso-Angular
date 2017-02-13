@@ -151,4 +151,4 @@ Los servicios son una manera de hacer lógica de comunicación independiente, al i
 1.Routing I
 Hasta ahora hemos creado aplicaciones de AngularJS que muestran datos en una única vista index.html.
 Pero, ¿qué sucede cuando la aplicación crece y necesita mostrar más información? Rellenar más código en una sola vista rápidamente hará que las cosas sean desordenadas.
-Una solución mejor es utilizar varias plantillas que muestran diferentes partes de datos basadas en la URL que el usuario está visitando. Podemos hacerlo con las rutas de aplicación de Angular.
+Una solución mejor es utilizar varias plantillas que muestran diferentes partes de datos basadas en la URL que el usuario está visitando. Podemos hacerlo con la Angular's application routes..
