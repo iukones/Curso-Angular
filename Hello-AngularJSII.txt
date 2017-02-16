@@ -152,3 +152,32 @@ Los servicios son una manera de hacer lógica de comunicación independiente, al i
 Hasta ahora hemos creado aplicaciones de AngularJS que muestran datos en una única vista index.html.
 Pero, ¿qué sucede cuando la aplicación crece y necesita mostrar más información? Rellenar más código en una sola vista rápidamente hará que las cosas sean desordenadas.
 Una solución mejor es utilizar varias plantillas que muestran diferentes partes de datos basadas en la URL que el usuario está visitando. Podemos hacerlo con la Angular's application routes..
+
+2.Routing II
+
+¡Estupendo! Aparece una galería de imágenes. ¿Como funciona?
+
+En app.js dentro del método app.config (), usamos el $ routeProvider de Angular para definir las rutas de la aplicación.
+Usamos .when () para mapear la URL / para el controlador HomeController y la plantilla home.html. El HomeController utiliza el servicio js / services / photos.js para obtener la matriz de todas las fotos de https://s3.amazonaws.com/codecademy-content/courses/ltp4/photos-api/photos.json y lo almacena en $ Scope.photos. El home.html utiliza ng-repeat para realizar un bucle a través de cada elemento de la matriz de fotos y mostrar cada foto.
+De lo contrario, si un usuario visita accidentalmente una URL distinta de /, simplemente reorientamos a / using .otherwise (). Ahora, cuando un usuario visita /, se construirá una vista inyectando home.html en la <div ng-view> </ div> en index.html.
+
+3.Routing III
+
+¿Qué acabamos de hacer?
+
+En app.js, hemos asignado una URL a PhotoController y photo.html. Añadimos una parte variable denominada id a la URL,
+así: /photos/:id.
+En PhotoController, usamos $routeParams de Angular para recuperar el identificador de la URL usando $routeParams.id. Observe que inyectamos $routeParams y el servicio de fotos en la matriz de dependencias de PhotoController para que estén disponibles para su uso dentro del controlador.
+Luego, para buscar una foto individual, utilizamos por primera vez el servicio de fotos para obtener la matriz de fotos del servidor y luego usamos $routeParams.id para acceder a la foto específica por su índice.
+Como antes, todas las propiedades asociadas a $scope están disponibles para su uso en la vista. Esto significa que en photo.html, podemos mostrar el detalle de la foto usando expresiones como antes.
+Tenga en cuenta que al hacer clic en vínculos, la aplicación no realiza una recarga completa. Sólo cambia la parte de la vista especificada por <div ng-view></ div>.
+
+3.Generalizaciones
+¿Por qué son útiles las rutas? En lugar de rellenar una sola vista con más código de lo necesario, las rutas nos permiten asignar URL a controladores y plantillas autónomos. Además, ahora que la aplicación tiene URL, los usuarios pueden marcar y compartir fácilmente las páginas de la aplicación.
+
+¿Qué podemos generalizar hasta ahora?
+-Las directivas son una forma de crear componentes de interfaz de usuario independientes, como <app-info>.
+-Los servicios son una forma de hacer una lógica de comunicación autónoma, como el pronóstico que obtiene datos meteorológicos de un servidor.
+-Las rutas son una forma de administrar las aplicaciones que contienen más vistas.
+
+
